@@ -77,3 +77,6 @@ print("check=\(sum)")
 if Int(sum)==numberToConvert{
     print("answer checks")
 }
+else{
+    print("answer does not check")
+}
