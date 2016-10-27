@@ -10,11 +10,13 @@
 
 import UIKit
 
-var numberToConvert = 5//base 10
-var newBase = 2
+var numberToConvert = 5345//base 10
+var newBase = 8 //2 t0 16 inclusive
 var remainder:Int
 var quotient = numberToConvert
 var answer = [Int]()
+
+assert(newBase>=2 && newBase<=16, "program only converts from base 10 to bases 2 to 16")
 
 
 repeat {
@@ -22,6 +24,7 @@ repeat {
     
     answer.append(remainder)
     quotient=quotient/newBase
+    //print(quotient)
     
     
 } while quotient != 0
@@ -53,3 +56,24 @@ for i in (0..<digits){
 }
 
 print(" base \(newBase)")
+
+//check
+var sum=0.0
+var x = 0.0
+var y = 0.0
+
+for index in (0..<digits){
+    
+    x=Double(answer[index])
+    //print(x)
+    y=pow(Double(newBase),Double(index))
+    //print(y)
+    
+   sum=sum+x*y
+    
+}
+
+print("check=\(sum)")
+if Int(sum)==numberToConvert{
+    print("answer checks")
+}
